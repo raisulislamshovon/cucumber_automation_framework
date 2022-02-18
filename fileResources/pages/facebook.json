@@ -1,0 +1,6 @@
+{
+    "userName": "//input[@id='email']",
+    "password": "//input[@id='pass']",
+    "loginButton": "//button[@id='loginbutton']",
+    "allText": "//*[contains(text(), '{text}')]"
+}
