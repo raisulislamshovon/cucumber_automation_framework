@@ -1,0 +1,44 @@
+{
+  "name": "cucumberUIandAPITest",
+  "version": "1.0.0",
+  "description": "Cucumber BDD Automation Test Framework",
+  "main": "cucumber.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/cucumber-js -t 'not (@mute or @quarantine)' -p default -p html_report ./test_features/features --require ./test_features",
+    "test-only": "./node_modules/.bin/cucumber-js -p default -p html_report -t"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raisul8741/cucumberUIandAPITest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raisul8741/cucumberUIandAPITest/issues"
+  },
+  "homepage": "https://github.com/raisul8741/cucumberUIandAPITest#readme",
+  "devDependencies": {
+    "@cucumber/cucumber": "^7.0.0",
+    "axios": "^0.21.1",
+    "chai": "^4.3.4",
+    "chromedriver": "^97.0.0",
+    "fs-extra": "^10.0.0",
+    "object-path": "^0.11.5",
+    "selenium-webdriver": "^4.0.0-beta.4"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "chrono-node": "^2.3.5",
+    "cucumber-html-reporter": "^5.4.0",
+    "geckodriver": "^2.0.2",
+    "lodash": "^4.17.21",
+    "mkdirp": "^1.0.4",
+    "moment": "^2.29.1",
+    "require-dir": "^1.2.0",
+    "sanitize-filename": "^1.6.3"
+  }
+}
