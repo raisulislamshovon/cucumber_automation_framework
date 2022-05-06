@@ -1,11 +1,14 @@
 const { Then } = require('@cucumber/cucumber');
 const { getTextFromElement } = require(`../../../utils/getElements`);
 const { expect } = require('chai');
+const { retry } = require('../../../utils/retry');
 
 Then(/^the '(.+)' text displays$/, async function (text) {
-    const actualText = await getTextFromElement(
-        this,
-        this.pages.facebook.allText.replace('{text}', text)
-    );
-    expect(actualText).to.contains(text);
+    await retry(async () => {
+        const actualText = await getTextFromElement(
+            this,
+            this.pages.facebook.allText.replace('{text}', text)
+        );
+        expect(actualText).to.contains(text);
+    }, 30000, 2000);
 });
