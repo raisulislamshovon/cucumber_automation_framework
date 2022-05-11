@@ -39,7 +39,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Cucumber Report
-        path: cucumber_automation_framework/reports/cucumber_report.html
+        path: reports/cucumber_report.html
         retention-days: 5
 
     # - name: Report
