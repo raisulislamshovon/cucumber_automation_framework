@@ -28,6 +28,14 @@ jobs:
     - name: Test run
       run: npm run test
 
+    - name: HTML Report
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: Cucumber Report
+        path: cucumber_automation_framework/reports/cucumber_report.html
+        retention-days: 5
+
     # - name: Report
     #   if: always()
     #   shell: bash
