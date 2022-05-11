@@ -1,0 +1,48 @@
+name: automated tests
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+    - name: Use Node.js v14
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+
+    # - name: install chromedriver
+    #   uses: nanasess/setup-chromedriver@v1
+    #   with:
+    #     chromedriver-version: 100.x
+
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Installation
+      run: git config --global url."https://".insteadOf git:// && npm install
+
+    - name: Test run
+      run: npm run test
+
+    - name: pwd
+      if: always()
+      run: |
+        pwd
+        ls -la
+
+    - name: HTML Report
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: Cucumber Report
+        path: reports/cucumber_report.html
+        retention-days: 5
+
+    # - name: Report
+    #   if: always()
+    #   shell: bash
+    #   run: echo "/home/runner/work/cucumber_test/cucumber_test/reports/cucumber_report.html"
