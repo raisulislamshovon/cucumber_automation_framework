@@ -6,4 +6,5 @@ Feature: Facebook Login Page
         And I login as :
             | userName | testraisul@gamil.com |
             | password | pass12345            |
-        Then the 'Find your account and log in.' text displays
+        Then the 'Log In' text displays
+        And the 'Find your account and log in.' text displays
