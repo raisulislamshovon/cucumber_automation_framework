@@ -28,6 +28,12 @@ jobs:
     - name: Test run
       run: npm run test
 
+    - name: pwd
+      if: always()
+      run: |
+        pwd
+        ls -la
+
     - name: HTML Report
       if: always()
       uses: actions/upload-artifact@v3
